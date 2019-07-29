@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一句话设计模式]]></title>
+    <url>%2F%E4%B8%80%E5%8F%A5%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html</url>
+    <content type="text"><![CDATA[创造类单例模式：确保一个类只有一个实例，而且自行实例化并像整个系统提供这个实例。私有化构造方法，提供公共方法获得实例。工厂方法模式：定义一个用于创建对象的接口，让子类决定实例化哪个类，工厂方法使一个类的实例化延迟到了子类。抽象工厂模式：为创建一组相关的或者相互依赖的的对象提供一个接口，而无需指定他们的具体类。建造者模式：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示原型模式：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。实现Cloneable接口，重写clone方法。迭代器模式：提供一个方法访问一个容器对象中的各个元素，而又不需暴露该对象的内部细节。Java中已经默认实现，使用foreach即可。行为类命令模式：把一个请求或者操作封装在命令对象中，命令模式允许系统使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和回复功能。解释器模式：给定一种语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。责任链模式：使多个对象都有机会处理请求，从而避免了请求的发送者和接受者1之间的解耦关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止。观察者模式：定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知被自动更新。中介者模式：用一个中介对象封装一系列对象的交互，中介者使各对象不需要显示地相互作用，从而使其耦合松散，而且可以独立的改变它们之间的交互。备忘录模式：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样以后就可以将该对象恢复到原先保存的状态。状态模式：当一个对象内在状态改变时允许其改变行为，这个对象看起来像是改变了其类。策略模式：定义一组算法，将每个算法都封装起来，并且可以使他们之间可以相互转换。模板方法模式：定义一个操作中的算法骨架，而将一些步骤延伸到子类，使得子类可以不改变一个算法结构即可重定义该算法的某些特定步骤。访问者模式：封装一些作用于某种数据结构中各元素的操作，它可以在不改变数据结构的前提下定于作用于这些元素的新操作。结构类适配器模式：将一个类的接口变换成客户端所期待的另一个接口，从而使本因接口不必配而无法工作的两个类能够在一起工作。组合模式：将对象组合成树形结构以表示”部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。代理模式；为其他对象提供一种代理以控制这个对象的访问。桥梁模式：将抽象和实现解耦，使得两者可以独立的变化。装饰模式：动态的给一个对象添加一些额外的职责，就增加功能来说，它相比生成子类更为灵活门面模式：要求一个子系统的外部与内部得同学都必须通过一个统一的对象进行，门面模式提供一个搞层次的接口，使得子系统更易于使用。享元模式：使用共享对象可以有效的支持大量的细粒度的对象。代码相关链接：《大话设计模式》 《设计模式之禅》]]></content>
+      <categories>
+        <category>随记</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Resful相关]]></title>
     <url>%2FResful%E7%9B%B8%E5%85%B3.html</url>
     <content type="text"><![CDATA[一、什么是Resful？RESTful是一种软件架构风格、设计风格，而不是标准，只是提供了一组设计原则和约束条件。它主要用于客户端和服务器交互类的软件。基于这个风格设计的软件可以更简洁，更有层次，更易于实现缓存等机制。二、常用方法：1234GET /blog/getArticles --&gt; GET /blog/Articles 获取所有文章GET /blog/addArticles --&gt; POST /blog/Articles 添加一篇文章GET /blog/editArticles --&gt; PUT /blog/Articles 修改一篇文章 GET /rest/api/deleteArticles?id=1 --&gt; DELETE /blog/Articles/1 删除一篇文章三、一句话总结！URL定位资源,HTTP动词描述操作。四、如何在resful传入多个参数？1@PutMapping(value = &quot;wx/createCustomer/&#123;number&#125;/&#123;nickName&#125;.do&quot;)五、@PathVariable 和 @RequestParam区别：@PathVariable用来绑定url模板变量值，获取url请求中的动态参数12345678910@RequestMapping(&quot;/zyh/&#123;type&#125;&quot;) public String zyh(@PathVariable(value = &quot;type&quot;) int type) throws UnsupportedEncodingException &#123; String url = &quot;http://wx.diyfintech.com/zyhMain/&quot; + type; if (type != 1 &amp;&amp; type != 2) &#123; throw new IllegalArgumentException(&quot;参数错误&quot;); &#125; String encodeUrl = URLEncoder.encode(url, &quot;utf-8&quot;); String redirectUrl = MessageFormat.format(OAUTH_URL, WxConfig.zyhAppId, encodeUrl, &quot;snsapi_userinfo&quot;, UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;)); return &quot;redirect:&quot; + redirectUrl; &#125;@RequestParam控制层用来获取参数12345678910111213141516171819@Controller@RequestMapping(&quot;/wx&quot;)public class WxController &#123; @Autowired private WxService wxService; private static final Log log= LogFactory.getLog(WxController.class); @RequestMapping(value = &quot;/service&quot;,method = RequestMethod.GET) public void acceptWxValid(@RequestParam String signature, @RequestParam String timestamp, @RequestParam String nonce, @RequestParam String echostr, HttpServletResponse response) throws IOException &#123; PrintWriter out = response.getWriter(); if (SignUtil.checkSignature(signature, timestamp, nonce)) &#123; out.print(echostr); &#125;else out.print(&quot;fail&quot;); out.flush(); out.close(); &#125;]]></content>
@@ -10,18 +22,6 @@
       <tags>
         <tag>java</tag>
         <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Resful相关]]></title>
-    <url>%2F%E4%B8%80%E5%8F%A5%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html</url>
-    <content type="text"><![CDATA[创造类单例模式：确保一个类只有一个实例，而且自行实例化并像整个系统提供这个实例。私有化构造方法，提供公共方法获得实例。工厂方法模式：定义一个用于创建对象的接口，让子类决定实例化哪个类，工厂方法使一个类的实例化延迟到了子类。抽象工厂模式：为创建一组相关的或者相互依赖的的对象提供一个接口，而无需指定他们的具体类。建造者模式：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示原型模式：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。实现Cloneable接口，重写clone方法。迭代器模式：提供一个方法访问一个容器对象中的各个元素，而又不需暴露该对象的内部细节。Java中已经默认实现，使用foreach即可。行为类命令模式：把一个请求或者操作封装在命令对象中，命令模式允许系统使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和回复功能。解释器模式：给定一种语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。责任链模式：使多个对象都有机会处理请求，从而避免了请求的发送者和接受者1之间的解耦关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止。观察者模式：定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知被自动更新。中介者模式：用一个中介对象封装一系列对象的交互，中介者使各对象不需要显示地相互作用，从而使其耦合松散，而且可以独立的改变它们之间的交互。备忘录模式：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，这样以后就可以将该对象恢复到原先保存的状态。状态模式：当一个对象内在状态改变时允许其改变行为，这个对象看起来像是改变了其类。策略模式：定义一组算法，将每个算法都封装起来，并且可以使他们之间可以相互转换。模板方法模式：定义一个操作中的算法骨架，而将一些步骤延伸到子类，使得子类可以不改变一个算法结构即可重定义该算法的某些特定步骤。访问者模式：封装一些作用于某种数据结构中各元素的操作，它可以在不改变数据结构的前提下定于作用于这些元素的新操作。结构类适配器模式：将一个类的接口变换成客户端所期待的另一个接口，从而使本因接口不必配而无法工作的两个类能够在一起工作。组合模式：将对象组合成树形结构以表示”部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。代理模式；为其他对象提供一种代理以控制这个对象的访问。桥梁模式：将抽象和实现解耦，使得两者可以独立的变化。装饰模式：动态的给一个对象添加一些额外的职责，就增加功能来说，它相比生成子类更为灵活门面模式：要求一个子系统的外部与内部得同学都必须通过一个统一的对象进行，门面模式提供一个搞层次的接口，使得子系统更易于使用。享元模式：使用共享对象可以有效的支持大量的细粒度的对象。代码相关链接：《大话设计模式》 《设计模式之禅》]]></content>
-      <categories>
-        <category>随记</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
